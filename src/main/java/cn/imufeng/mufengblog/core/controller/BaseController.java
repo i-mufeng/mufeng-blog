@@ -1,4 +1,6 @@
-package cn.imufeng.mufengblog.core.controller;/**
+package cn.imufeng.mufengblog.core.controller;
+
+/**
  * <p>
  * 所有控制器的基类
  * </p>
