@@ -1,6 +1,7 @@
    ___            __  __   _   _     ___                    __ _
-  |_ _|     o O O|  \/  | | | | |   | __|   ___    _ _     / _` |
+  |_ _|     o O O|  \/  | | | | |   | __|   ___    _ _     / _` |           沐风 ● 栉风沐雨 砥砺前行
    | |     o     | |\/| | | |_| |   | _|   / -_)  | ' \    \__, |
-  |___|   TS__[O]|_|__|_|  \___/   _|_|_   \___|  |_||_|   |___/
-_|"""""| {======|_|"""""|_|"""""|_| """ |_|"""""|_|"""""|_|"""""|
+  |___|   TS__[O]|_|__|_|  \___/   _|_|_   \___|  |_||_|   |___/            邮箱 [${AnsiColor.BLUE}admin@imufeng.cn${AnsiStyle.NORMAL}]
+_|"""""| {======|_|"""""|_|"""""|_| """ |_|"""""|_|"""""|_|"""""|           主页 [${AnsiColor.BLUE}${AnsiStyle.UNDERLINE}https://imufeng.cn${AnsiStyle.NORMAL}]
 "`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
+ ${AnsiColor.BRIGHT_CYAN}MuFeng的个人博客系统 ${application.version}   : : Spring Boot : : ${spring-boot.formatted-version} ${AnsiStyle.NORMAL}

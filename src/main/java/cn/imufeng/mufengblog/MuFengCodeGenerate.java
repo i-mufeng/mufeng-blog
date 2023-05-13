@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.Collections;
 
 /**
+ * @description 代码生成工具 基于MP
  * @author MuFeng
  * @since 2023-4-27 18:45:04
  */

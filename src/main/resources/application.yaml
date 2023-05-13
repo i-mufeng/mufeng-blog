@@ -1,0 +1,110 @@
+#########################################
+# server configuration
+#########################################
+server:
+  port: 8080
+
+#########################################
+# spring configuration
+#########################################
+spring:
+  # 配置文件
+  profiles:
+    active: local
+
+  # Servlet 接收文件最大大小
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/snowy?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true&useInformationSchema=true
+    username: root
+    password: root
+    # Druid 配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query-timeout: 2000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      filters: stat
+      break-after-acquire-failure: false
+
+  # jackSon
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    locale: zh_CN
+
+  # Redis
+  data:
+    redis:
+      database: 2
+      host: localhost
+      password:
+      timeout: 10s
+
+#########################################
+# mybatis-plus configuration
+#########################################
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    jdbc-type-for-null: null
+  global-config:
+    banner: off
+
+#########################################
+# sa-token configuration
+#########################################
+sa-token:
+  token-name: token
+  timeout: 2592000
+  # Token 临时过期时间
+  activity-timeout: -1
+  # 是否允许并发登录
+  is-concurrent: true
+  # 多人同时登录是否公用一个Token
+  is-share: false
+  # 同一账号最大登录数量
+  max-login-count: -1
+  # Token 风格
+  token-style: random-64
+  # 是否打印操作日志
+  is-log: false
+  # 是否打印 Banner
+  is-print: false
+
+#########################################
+# Api Documents configuration
+#########################################
+
+knife4j:
+  enable: true
+  production: false
+#  basic:
+#    enable: true
+#    username: admin
+#    password: admin
+  setting:
+    enableOpenApi: false
+    enableSwaggerModels: false
+    enableFooter: true
+    enableFooterCustom: true
+    footerCustomContent: Apache License 2.0 | Copyright 2022-[MuFeng](https://blog.imufeng.cn)
