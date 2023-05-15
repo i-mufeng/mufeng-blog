@@ -20,6 +20,8 @@
 		<module>blog-common</module>
 		<module>blog-business</module>
 		<module>admin</module>
+		<module>blog-business/business-blog</module>
+		<module>blog-business/business-auth</module>
 	</modules>
 
 	<properties>
@@ -130,6 +132,17 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 
 </project>

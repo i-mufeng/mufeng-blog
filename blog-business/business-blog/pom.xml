@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.imufeng</groupId>
-        <artifactId>mufeng-blog</artifactId>
+        <artifactId>blog-business</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>blog-business</artifactId>
-    <packaging>pom</packaging>
-    <description>业务模块</description>
+    <artifactId>business-blog</artifactId>
+    <description>博客模块</description>
+
 </project>
