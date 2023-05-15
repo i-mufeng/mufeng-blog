@@ -105,6 +105,6 @@ knife4j:
   setting:
     enableOpenApi: false
     enableSwaggerModels: false
-    enableFooter: true
+    enableFooter: false
     enableFooterCustom: true
     footerCustomContent: Apache License 2.0 | Copyright 2022-[MuFeng](https://blog.imufeng.cn)

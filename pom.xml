@@ -2,104 +2,110 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.imufeng</groupId>
+	<artifactId>mufeng-blog</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>mufeng-blog</name>
+	<description>沐风的个人博客系统</description>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.6</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cn.imufeng</groupId>
-	<artifactId>mufeng-blog</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>mufeng-blog</name>
-	<description>mufeng-blog</description>
+
+	<modules>
+		<module>blog-common</module>
+		<module>blog-business</module>
+		<module>admin</module>
+	</modules>
+
 	<properties>
+		<mufeng.blog.version>1.0.0</mufeng.blog.version>
 		<java.version>17</java.version>
+		<mybatis.plus.version>3.5.3.1</mybatis.plus.version>
+		<sa.token.version>1.34.0</sa.token.version>
+		<druid.version>1.2.15</druid.version>
+		<hutool.version>5.8.12</hutool.version>
+		<knife4j.version>4.1.0</knife4j.version>
+		<mysql.version>8.0.33</mysql.version>
 	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>cn.imufeng</groupId>
+				<artifactId>admin</artifactId>
+				<version>${mufeng.blog.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.imufeng</groupId>
+				<artifactId>blog-common</artifactId>
+				<version>${mufeng.blog.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.imufeng</groupId>
+				<artifactId>blog-business</artifactId>
+				<version>${mufeng.blog.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.5.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-generator</artifactId>
-			<version>3.5.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-		</dependency>
+			<!-- Mybatis-plus -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis.plus.version}</version>
+			</dependency>
 
-		<!-- sa-token -->
-		<dependency>
-			<groupId>cn.dev33</groupId>
-			<artifactId>sa-token-spring-boot3-starter</artifactId>
-			<version>1.34.0</version>
-		</dependency>
-		<!-- sa-token 整合 redis （使用jackson序列化方式） -->
-		<dependency>
-			<groupId>cn.dev33</groupId>
-			<artifactId>sa-token-dao-redis-jackson</artifactId>
-			<version>1.34.0</version>
-		</dependency>
-<!--		&lt;!&ndash; Sa-Token插件：权限缓存与业务缓存分离 &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>cn.dev33</groupId>-->
-<!--			<artifactId>sa-token-alone-redis</artifactId>-->
-<!--			<version>1.34.0</version>-->
-<!--		</dependency>-->
+			<!-- Mybatis-plus提供的代码生成工具 -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-generator</artifactId>
+				<version>${mybatis.plus.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-			<version>1.2.15</version>
-		</dependency>
+			<!-- sa-token -->
+			<dependency>
+				<groupId>cn.dev33</groupId>
+				<artifactId>sa-token-spring-boot3-starter</artifactId>
+				<version>${sa.token.version}</version>
+			</dependency>
 
-		<dependency>
-			<groupId>com.github.xiaoymin</groupId>
-			<artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
-			<version>4.1.0</version>
-		</dependency>
+			<!-- sa-token 整合 redis （使用jackson序列化方式） -->
+			<dependency>
+				<groupId>cn.dev33</groupId>
+				<artifactId>sa-token-dao-redis-jackson</artifactId>
+				<version>${sa.token.version}</version>
+			</dependency>
 
-	</dependencies>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+
+			<!-- knife4j -->
+			<dependency>
+				<groupId>com.github.xiaoymin</groupId>
+				<artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+				<version>${knife4j.version}</version>
+			</dependency>
+
+			<!-- hutool -->
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
@@ -108,16 +114,20 @@
 				<artifactId>native-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<attach>true</attach>
 				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -1,6 +1,6 @@
-package cn.imufeng.mufengblog;
+package cn.imufeng.blog;
 
-import cn.imufeng.mufengblog.core.controller.BaseController;
+import cn.imufeng.blog.controller.BaseController;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
